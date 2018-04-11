@@ -16,24 +16,20 @@
 
         <script src="reader/js/libs/zip.min.js"></script>
 
-        
-        <!-- EPUBJSR.app.init("reader/moby-dict"); -->
-              
-        
         <script>
-          "use strict";
-
-          document.onreadystatechange = function () {
-            if (document.readyState == "complete") {
-              EPUBJS.cssPath = "../reader/css/";
-              ePubReader("reader/moby-dick/");
-            }
-          };
-
+            "use strict";
+            document.onreadystatechange = function () {
+              if (document.readyState == "complete") {
+                EPUBJS.filePath = "reader/js/libs/";
+                EPUBJS.cssPath = window.location.href.replace(window.location.hash, '').replace('index.html', '') + "css/";
+                // fileStorage.filePath = EPUBJS.filePath;
+                window.reader = ePubReader("hsbook/");
+              }
+            };
         </script>
 
         <!-- File Storage -->
-        <!-- <script src="js/libs/localforage.min.js"></script> -->
+        <!-- <script src="reader/js/libs/localforage.min.js"></script> -->
 
         <!-- Full Screen -->
         <script src="reader/js/libs/screenfull.min.js"></script>
@@ -48,11 +44,11 @@
         <script src="reader/js/reader.min.js"></script>
 
         <!-- Plugins -->
-        <!-- <script src="js/plugins/search.js"></script> -->
+        <!-- <script src="reader/js/plugins/search.js"></script> -->
 
         <!-- Highlights -->
-        <!-- <script src="js/libs/jquery.highlight.js"></script> -->
-        <!-- <script src="js/hooks/extensions/highlight.js"></script> -->
+        <!-- <script src="reader/js/libs/jquery.highlight.js"></script> -->
+        <!-- <script src="reader/js/hooks/extensions/highlight.js"></script> -->
 
     </head>
     <body>
