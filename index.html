@@ -3,97 +3,117 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ePubJS Examples</title>
+        <title></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
-        <style type="text/css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/popup.css">
 
-          body {
-            overflow: auto;
-            background: #eee;
-          }
+        <script src="js/libs/jquery.min.js"></script>
 
-          #wrapper {
-            width: 480px;
-            height: 640px;
-            overflow: hidden;
-            border: 1px solid #ccc;
-            margin: 28px auto;
-            background: #fff;
-            border-radius: 0 5px 5px 0;
-          }
+        <script src="js/libs/zip.min.js"></script>
 
-          #area {
-            width: 480px;
-            height: 660px;
-            margin: -30px auto;
-            -moz-box-shadow:      inset 10px 0 20px rgba(0,0,0,.1);
-            -webkit-box-shadow:   inset 10px 0 20px rgba(0,0,0,.1);
-            box-shadow:           inset 10px 0 20px rgba(0,0,0,.1);
-          }
+        <script>
+            "use strict";
+            document.onreadystatechange = function () {
+              if (document.readyState == "complete") {
+                EPUBJS.filePath = "js/libs/";
+                EPUBJS.cssPath = window.location.href.replace(window.location.hash, '').replace('index.html', '') + "css/";
+                // fileStorage.filePath = EPUBJS.filePath;
+                window.reader = ePubReader("../hsbook");
+              }
+            };
+        </script>
 
-          #area iframe {
-            padding: 40px 40px;
-          }
+        <!-- File Storage -->
+        <!-- <script src="js/libs/localforage.min.js"></script> -->
 
-          body {
-            font-size: 1em;
-            line-height: 1.33em;
-            font-family: serif;
+        <!-- Full Screen -->
+        <script src="js/libs/screenfull.min.js"></script>
 
-          }
-          h1 {
-            text-align: center;
-            font-size: 1.5em;
-            line-height: 1.33em;
-            text-align: center;
-            padding-bottom: 0em;
-            text-align: center;
-            text-transform: uppercase;
-            font-weight: normal;
-            letter-spacing: 4px;
-            padding-top: 60px;
-          }
+        <!-- Render -->
+        <script src="js/epub.min.js"></script>
 
-          ol {
-            width: 350px;
-            margin: 50px auto;
-            /*font-family: sans-serif;*/
-          }
+        <!-- Hooks -->
+        <script src="js/hooks.min.js"></script>
 
-          a {
-            font-size: 1.2em;
-            line-height: 1.33em;
-            color: #000;
-          }
-        </style>
+        <!-- Reader -->
+        <script src="js/reader.min.js"></script>
 
+        <!-- Plugins -->
+        <!-- <script src="js/plugins/search.js"></script> -->
+
+        <!-- Highlights -->
+        <!-- <script src="js/libs/jquery.highlight.js"></script> -->
+        <!-- <script src="js/hooks/extensions/highlight.js"></script> -->
 
     </head>
     <body>
-        <div id="main">
-          <div id="wrapper">
-            <div id="area">
+      <div id="sidebar">
+        <div id="panels">
+          <input id="searchBox" placeholder="search" type="search">
 
-              <h1>EPUB.js<br>Examples</h1>
-              <ol>
-                <li><a href="examples/single.html">Single</a></li>
-                <li><a href="examples/basic.html">Basic</a></li>
-                <li><a href="examples/contained.html">Contained</a></li>
-                <li><a href="examples/promises.html">Promises</a></li>
-                <li><a href="examples/fixed.html">Fixed</a></li>
-                <li><a href="examples/custom-elements.html">Custom Element</a></li>
-                <li><a href="examples/mathml.html">MathML</a></li>
-                <li><a href="examples/hypothesis.html">Annotations with Hypothes.is</a></li>
-                <li><a href="examples/pagination.html">Pagination</a></li>
-              </ol>
+          <a id="show-Search" class="show_view icon-search" data-view="Search">Search</a>
+          <a id="show-Toc" class="show_view icon-list-1 active" data-view="Toc">TOC</a>
+          <a id="show-Bookmarks" class="show_view icon-bookmark" data-view="Bookmarks">Bookmarks</a>
+          <a id="show-Notes" class="show_view icon-edit" data-view="Notes">Notes</a>
 
-            </div>
+        </div>
+        <div id="tocView" class="view">
+        </div>
+        <div id="searchView" class="view">
+          <ul id="searchResults"></ul>
+        </div>
+        <div id="bookmarksView" class="view">
+          <ul id="bookmarks"></ul>
+        </div>
+        <div id="notesView" class="view">
+          <div id="new-note">
+            <textarea id="note-text"></textarea>
+            <button id="note-anchor">Anchor</button>
+          </div>
+          <ol id="notes"></ol>
+        </div>
+      </div>
+      <div id="main">
+
+        <div id="titlebar">
+          <div id="opener">
+            <a id="slider" class="icon-menu">Menu</a>
+          </div>
+          <div id="metainfo">
+            <span id="book-title"></span>
+            <span id="title-seperator">&nbsp;&nbsp;–&nbsp;&nbsp;</span>
+            <span id="chapter-title"></span>
+          </div>
+          <div id="title-controls">
+            <a id="bookmark" class="icon-bookmark-empty">Bookmark</a>
+            <a id="setting" class="icon-cog">Settings</a>
+            <a id="fullscreen" class="icon-resize-full">Fullscreen</a>
           </div>
         </div>
 
+        <div id="divider"></div>
+        <div id="prev" class="arrow">‹</div>
+        <div id="viewer"></div>
+        <div id="next" class="arrow">›</div>
 
+        <div id="loader"><img src="img/loader.gif"></div>
+      </div>
+      <div class="modal md-effect-1" id="settings-modal">
+          <div class="md-content">
+              <h3>Settings</h3>
+              <div>
+                  <p>
+                    <input type="checkbox" id="sidebarReflow" name="sidebarReflow">Reflow text when sidebars are open.
+                  </p>
+              </div>
+              <div class="closer icon-cancel-circled"></div>
+          </div>
+      </div>
+      <div class="overlay"></div>
     </body>
 </html>
