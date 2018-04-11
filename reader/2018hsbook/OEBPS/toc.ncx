@@ -12,10 +12,12 @@
         <text>Wedding Invitation</text>
     </docTitle>
     <navMap>
-        <navPoint class="chapter" id="titlepage" playOrder="1">
+    
+    <navPoint id="chapter" id="titlepage" playOrder="1">
       <navLabel><text>Wedding Invitation</text></navLabel>
-      <content src="Text/cover.xhtml"/>
+         <content src="Text/cover.xhtml"/>
     </navPoint>
+
     
     <navPoint id="chapter" playOrder="1">
         <navLabel><text>Explaining how to use</text></navLabel>
