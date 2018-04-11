@@ -26,8 +26,6 @@
                 window.reader = ePubReader("reader/2018hsbook/");
               }
             };
-            
-            var Book = ePub("reader/2018hsbook/", {restore: true, reload: true });
         </script>
 
         <!-- File Storage -->
@@ -97,27 +95,6 @@
             <a id="fullscreen" class="icon-resize-full">Fullscreen</a>
           </div>
         </div>
-          
-          
-
-          <!--
-        <div id="divider"></div>
-        <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
-          <div id="wrapper">
-            <div id="area"></div>
-          </div>
-          <div id="next" onclick="Book.nextPage();" class="arrow">›</div>
-        </div>
-        <script>
-            Book.renderTo("area");
-        </script>
-        <div id="viewer"></div>
--->
-          
-        <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
-        <div id="area"></div>
-        <div id="next" onclick="Book.nextPage();" class="arrow">›</div>
-
 
 
         <div id="divider"></div>
@@ -129,13 +106,7 @@
 
       </div>
         
-                  
-      <script>            
-            
-          Book.renderTo("area");
-      </script>
-        
-        
+      
     
       <div class="modal md-effect-1" id="settings-modal">
           <div class="md-content">
