@@ -16,16 +16,21 @@
 
         <script src="reader/js/libs/zip.min.js"></script>
 
+       
         <script>
             "use strict";
-            document.onreadystatechange = function () {
+            
+            document.onreadystatechange = function () {  
               if (document.readyState == "complete") {
+               <!-- EPUBJS.VERSION = "0.1.6"; -->
+                
                 EPUBJS.filePath = "reader/js/libs/";
-                EPUBJS.cssPath = window.location.href.replace(window.location.hash, '').replace('index.html', '') + "css/";
+                EPUBJS.cssPath = "reader/css/";
                 // fileStorage.filePath = EPUBJS.filePath;
-                window.reader = ePubReader("../hsbook");
-              }
+                EPUBJSR.app.init("./hsbook/");
+              }  
             };
+        
         </script>
 
         <!-- File Storage -->
