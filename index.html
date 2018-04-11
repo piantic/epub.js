@@ -12,15 +12,15 @@
         <link rel="stylesheet" href="reader/css/main.css">
         <link rel="stylesheet" href="reader/css/popup.css">
 
-        <script src="js/libs/jquery.min.js"></script>
+        <script src="reader/js/libs/jquery.min.js"></script>
 
-        <script src="js/libs/zip.min.js"></script>
+        <script src="reader/js/libs/zip.min.js"></script>
 
         <script>
             "use strict";
             document.onreadystatechange = function () {
               if (document.readyState == "complete") {
-                EPUBJS.filePath = "js/libs/";
+                EPUBJS.filePath = "reader/js/libs/";
                 EPUBJS.cssPath = window.location.href.replace(window.location.hash, '').replace('index.html', '') + "css/";
                 // fileStorage.filePath = EPUBJS.filePath;
                 window.reader = ePubReader("../hsbook");
@@ -32,16 +32,16 @@
         <!-- <script src="js/libs/localforage.min.js"></script> -->
 
         <!-- Full Screen -->
-        <script src="js/libs/screenfull.min.js"></script>
+        <script src="reader/js/libs/screenfull.min.js"></script>
 
         <!-- Render -->
-        <script src="js/epub.min.js"></script>
+        <script src="reader/js/epub.min.js"></script>
 
         <!-- Hooks -->
-        <script src="js/hooks.min.js"></script>
+        <script src="reader/js/hooks.min.js"></script>
 
         <!-- Reader -->
-        <script src="js/reader.min.js"></script>
+        <script src="reader/js/reader.min.js"></script>
 
         <!-- Plugins -->
         <!-- <script src="js/plugins/search.js"></script> -->
@@ -101,7 +101,7 @@
         <div id="viewer"></div>
         <div id="next" class="arrow">›</div>
 
-        <div id="loader"><img src="img/loader.gif"></div>
+        <div id="loader"><img src="reader/img/loader.gif"></div>
       </div>
       <div class="modal md-effect-1" id="settings-modal">
           <div class="md-content">
