@@ -16,6 +16,8 @@
 
         <script src="reader/js/libs/zip.min.js"></script>
 
+        
+        <!--
        
         <script>
             "use strict";
@@ -31,6 +33,18 @@
               }  
             };
         
+        </script> -->
+        
+        <script>
+          "use strict";
+
+          document.onreadystatechange = function () {
+            if (document.readyState == "complete") {
+              EPUBJS.cssPath = "../reader/css/";
+              ePubReader("reader/moby-dick/");
+            }
+          };
+
         </script>
 
         <!-- File Storage -->
