@@ -95,11 +95,24 @@
             <a id="fullscreen" class="icon-resize-full">Fullscreen</a>
           </div>
         </div>
+          
 
+          <div id="prev" onclick="Book.prevPage();" class="arrow">‹</div>
+          <div id="wrapper">
+            <div id="area"></div>
+          </div>
+          <div id="next" onclick="Book.nextPage();" class="arrow">›</div>
+        </div>
+
+        <script>
+            Book.renderTo("area");
+        </script>
+
+        <!--
         <div id="divider"></div>
         <div id="prev" class="arrow">‹</div>
         <div id="viewer"></div>
-        <div id="next" class="arrow">›</div>
+        <div id="next" class="arrow">›</div> -->
  
         <div id="loader"><img src="img/loader.gif"></div>
       </div>
