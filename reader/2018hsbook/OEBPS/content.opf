@@ -32,6 +32,7 @@
         <item href="Images/location1.png" id="location1.png" media-type="image/png"/>
         <item href="Images/intro.jpg" id="intro.jpg" media-type="image/jpeg"/>
         <item href="Text/End.xhtml" id="End.xhtml" media-type="application/xhtml+xml"/>
+        <item href="Text/Photos.xhtml" id="photos.xhtml" media-type="application/xhtml+xml"/>
         <item href="Images/2end1.png" id="2end1.png" media-type="image/jpeg"/>
         <item href="Text/RealEnd.xhtml" id="RealEnd.xhtml" media-type="application/xhtml+xml"/>
         <item href="Text/Explain.xhtml" id="Explain.xhtml" media-type="application/xhtml+xml"/>
@@ -46,6 +47,7 @@
         <itemref idref="Location.xhtml"/>
         <itemref idref="Epilogue.xhtml"/>
         <itemref idref="End.xhtml"/>
+        <itemref idref="Photos.xhtml"/>
         <itemref idref="RealEnd.xhtml"/>
     </spine>
     <guide>
